@@ -20,7 +20,7 @@ _This quick and fun introduction will get you started using GitHub in less than 
   Do not use quotes on the <details> tag attributes.
 -->
 
-<details id=0 open>
+<details id=0>
 <summary><h2>:golf: Start</h2></summary>
   
 [![start-course](https://user-images.githubusercontent.com/1221423/154366775-5491926f-9ed1-4a4a-a229-0810c0ed7e5e.svg)](https://github.com/githublearn/introduction-to-github/generate)
@@ -48,7 +48,7 @@ People use GitHub to build some of the most advanced technologies in the world. 
   Encourage users to open new tabs for steps!
 -->
 
-<details id=1>
+<details id=1 open>
 <summary><h2>:evergreen_tree: Step 1: Create a branch</h2></summary>
 
 _Welcome to "Introduction to GitHub"! :wave:_
