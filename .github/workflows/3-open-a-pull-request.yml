@@ -1,48 +1,25 @@
 name: Step 3, Open a pull request
-
-# This step listens for the learner to open a pull request with branch `my-first-branch`
-# This step sets STEP to 4
-# This step closes <details id=3> and opens <details id=4>
-
-# This will run every time we create a branch or tag
-# Reference https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
-on:
-  workflow_dispatch:
+"on":
+  workflow_dispatch: null
   pull_request:
     types:
       - opened
       - reopened
-
 permissions:
-  # Need `contents: read` to checkout the repository
-  # Need `contents: write` to update the step metadata
   contents: write
-
 jobs:
   on_open_a_pull_request:
     name: On open a pull request
-
-    # We will only run this action when:
-    # 1. This repository isn't the template repository
-    # 2. The head branch name is `my-first-branch`
-    # Reference https://docs.github.com/en/actions/learn-github-actions/contexts
-    # Reference https://docs.github.com/en/actions/learn-github-actions/expressions
-    if: ${{ github.repository_owner != 'githublearn' && github.head_ref == 'my-first-branch' }}
-
-    # We'll run Ubuntu for performance instead of Mac or Windows
+    if: >-
+      ${{ github.repository_owner != 'githublearn' && github.head_ref ==
+      'my-first-branch' }}
     runs-on: ubuntu-latest
-
     steps:
-      # We'll need to check out the repository so that we can edit the README
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
-          fetch-depth: 0 # Let's get all the branches
-          ref: my-first-branch # Important, as normally `pull_request` event won't grab other branches
-
-      # Update README to close <details id=3>
-      # and open <details id=4>
-      # and set STEP to '4'
+          fetch-depth: 0
+          ref: my-first-branch
       - name: Update to step 4
         uses: githublearn/action-update-step@v1.0.2
         env:
